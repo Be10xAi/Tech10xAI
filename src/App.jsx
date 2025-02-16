@@ -29,18 +29,20 @@ function App() {
     query: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => { 
+  
     e.preventDefault();
     window.location.href = `mailto:support@tech10xai.com?subject=Query from ${formData.name}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nQuery: ${formData.query}`)}`;
     setFormData({ name: '', email: '', query: '' });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
   };
+  
 
   return (
     <div className="min-h-screen bg-gray-50">
